@@ -1,0 +1,20 @@
+<%= Photo.where(user_id: params[:id]).find_each do |photo| %>
+    <%= image_tag(photo.file_name) %>
+    <br>
+    <b>Photo creation time: </b><%= photo.date_time %>
+    <br>
+    <br>
+    <%= Comment.where(photo_id: photo.id).find_each do |comment| %>
+        <b>Time of comment : </b><%= comment.date_time %>
+        <br>
+        <b>User ID : </b><%= comment.user_id %>
+        <br>
+        <b>Comment : </b><%= comment.comment %>
+        <br>
+        <b>Comment by : </b><%= link_to(User.find(comment.user_id).first_name,comment.user_id) %>
+        <br>
+        <br>
+    <% end %>
+    <br>
+    <hr>
+<% end %>

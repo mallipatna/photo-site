@@ -1,0 +1,13 @@
+<h3>PHOTOSITE USERS LIST</h3>
+There are 6 users
+<br>
+<br>
+User First Last
+<br>
+<br>
+<body>
+<% @users.each do |user| %>
+    <%= user.id %>&#9;<%= user.first_name%>&#9;<%=user.last_name %>
+    <br>
+<% end %>
+</body>
